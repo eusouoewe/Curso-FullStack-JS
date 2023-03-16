@@ -8,9 +8,17 @@
 .container {
     background-color: #d3d3d3;
     height: 100vh;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #ffffff;
     width: 150px;
     height: 150px;
