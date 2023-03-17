@@ -7,20 +7,40 @@
 
 .container {
     background-color: #d3d3d3;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    gap: 15px;
+    gap: 0 15px;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
 }
 
 .item {
     display: flex;
+    width: 200px;
+    height: 70px;
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
-    width: 150px;
-    height: 150px;
     border: 3px solid #000000;
+}
+
+.item1 {
+    order: 2;
+    align-self: flex-end;
+}
+
+.item2 {
+    order: 3;
+}
+
+.item3 {
+    order: 1;
+}
+
+@media (max-width: 390px) {
+    .item2 {
+        flex: 1 0 620px;
+    }
 }
