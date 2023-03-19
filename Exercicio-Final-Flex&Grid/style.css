@@ -3,23 +3,30 @@
 *{
     padding: 0; margin: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    flex: 1 0 auto;
-    min-width: 100%;
+    width: 100vw;
+    height: 100%;
+    justify-content: space-between;
+    background-color: ghostwhite;
 }
 
-.header {
+.header, .footer {
     display: flex;
     flex-direction: row;
-    background-color: #0E0F0F;
-    min-width: 100%;
+    min-width: 280px;
+    background-color: #232323;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 15px;
+}
+
+.logo {
+    width: 300px;
 }
 
 .nav {
@@ -30,17 +37,187 @@
 .button {
     background-color: transparent;
     color: white;
-    border-width: 0;
-    padding: 3px;
-    border-radius: 4px;
-    transition: .4s;
+    border: 3px solid transparent;
+    padding: 4px;
+    transition: .4s ease-in-out;
 }
 
 .button:hover {
     cursor: pointer;
-    border-bottom-width: 5px;
+    border-bottom: 3px solid #000;
 }
 
-.logo {
-    width: 300px;
+.titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    text-align: center;
+    margin: 15px auto 2px auto;
+    font-weight: normal;
+}
+
+.subtitle {
+    margin: 5px auto;
+    font-weight: normal;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.subtitle-extra {
+    font-size: 1.1em;
+    font-weight: normal;
+    padding: 10px;
+}
+
+.paragraph {
+    font-size: 1.2em;
+}
+
+.content {
+    display: grid;
+    min-width: fit-content;
+    grid-template-columns: 2fr 1fr;
+    justify-content: space-between;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    min-height: 400px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: .4s ease-in-out;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 10px 10px 10px #e8e8e5;
+}
+.item:hover {
+    box-shadow: 1px 1px 10px #000;
+    cursor: pointer;
+}
+
+.image {
+    width: 100%;
+    height: 200px;
+    border-radius: 7px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    text-align: center;
+    color: #fff;
+    background-color: #232323;
+    gap: 10px;
+    margin: 20px auto;
+    padding: 10px 0;
+}
+
+.extra {
+    width: fit-content;
+    margin: auto;
+    border: 2px solid transparent;
+    border-radius: 7px;
+    transition: .4s ease-in-out;
+}
+.extra:hover {
+    border: 2px solid #fff;
+    border-radius: 8px;
+}
+
+.extra-img {
+    width: 100%;
+    height: 200px;
+    border-radius: 7px;
+}
+
+@media (max-width: 1320px) {
+    .content {
+        display: flex;
+        flex-direction: row;
+    }
+    .main-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .item {
+        max-width: 350px;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .sidebar {
+        min-width: 350px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .main-content {
+        display: flex;
+        flex-direction: column;
+    }
+    .item {
+        width: 400px;
+    }
+}
+
+@media (max-width: 830px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+    .main-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .sidebar {
+        width: 90%;
+    }
+    .extra {
+        width: 400px;
+        height: 250px;
+    }
+    .extra-img {
+        width: 100%;
+        height: 80%;
+    }
+}
+
+@media (max-width: 500px) {
+    .logo {
+        width: 200px;
+    }
+    .titles{
+        font-size: .5em;
+    }
+    .item, .extra {
+        width: 250px;
+    }
+    .header, .footer {
+        display: flex;
+        flex-direction: column;
+    }
+    .button {
+        font-size: 1em;
+        margin: 10px auto;
+    }
 }
