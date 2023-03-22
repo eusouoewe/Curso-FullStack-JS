@@ -9,4 +9,4 @@ let subtracao = primeiroNumero - segundoNumero
 let multiplicacao = primeiroNumero * segundoNumero
 let divisao = primeiroNumero / segundoNumero
 
-alert("Resultado da Adição entre " + primeiroNumero + " e " + segundoNumero + ": " + adicao + "\nResultado da Subtração entre " + primeiroNumero + "e " + segundoNumero + ": " +subtracao + "\nResultado da Multiplicação entre " + primeiroNumero + "e " + segundoNumero + ": " + multiplicacao + "\nResultado da Divisão entre " + primeiroNumero + "e " + segundoNumero + ": " + divisao)
+alert("Resultado da Adição entre " + primeiroNumero + " e " + segundoNumero + ": " + adicao + "\nResultado da Subtração entre " + primeiroNumero + " e " + segundoNumero + ": " +subtracao + "\nResultado da Multiplicação entre " + primeiroNumero + " e " + segundoNumero + ": " + multiplicacao + "\nResultado da Divisão entre " + primeiroNumero + " e " + segundoNumero + ": " + divisao)
