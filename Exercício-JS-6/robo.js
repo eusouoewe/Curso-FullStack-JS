@@ -1,8 +1,7 @@
 let numero = +prompt("Informe um numero para o robô multiplicar: ")
+let multplicacao = ''
 
 for (let contagem = 1; contagem < 21; contagem++) {
-    let multplicacao = contagem * numero
-    alert("Segue resultado das multiplicações: " +
-    `${contagem} x ${numero} = ${multplicacao}`)
+    multplicacao += "→ " + numero + " x " + contagem + " = " + (numero*contagem) + "\n"
 }
-alert("Finalizando...")
+alert(`Resultado da tabuada do numero ${numero}: \n\n` + multplicacao)
