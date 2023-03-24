@@ -4,7 +4,8 @@ let novaQuantidade = quantidade;
 let opcao;
 
 do {
-    opcao = +prompt("Você quer: " +
+    opcao = +prompt(`Saldo disponível: R$${novaQuantidade},00` +
+    "\nVocê quer: " +
     "\n1- Depositar quantia;" +
     "\n2- Sacar quantia." +
     "\n3- Sair")
@@ -15,7 +16,7 @@ do {
         sacar = +prompt("Quanto dinheiro você quer sacar? ")
         novaQuantidade -= sacar;
     }
-    alert(`Você agora tem R$${novaQuantidade}.00`)
+    alert(`Você agora tem R$${novaQuantidade},00`)
 } while (opcao !== 3)
 
-alert(`Você encerrou o Atendimento Financeiro com R$${novaQuantidade}.00 na conta.`)
+alert(`Você encerrou o Atendimento Financeiro com R$${novaQuantidade},00 na conta.`)
