@@ -7,9 +7,9 @@ for (let contagem = palavra.toLowerCase().length - 1; contagem >= 0; contagem--)
 }
 
 if (palavra.toLowerCase() === palindromo.toLowerCase()){
-    alert(`A palavra ${palavra} é um palíndromo.`);
+    alert(`A palavra ${palavra.toLowerCase()} é um palíndromo.`);
 } else {
-    alert(`A palavra ${palavra} não é um palíndromo.` +
-    `\nPalavra normal: ${palavra}` +
-    `\nPalavra ao crontrário: ${palindromo}`);  
+    alert(`A palavra ${palavra.toLowerCase()} não é um palíndromo.` +
+    `\nPalavra normal: ${palavra.toLowerCase()}` +
+    `\nPalavra ao crontrário: ${palindromo.toLowerCase()}`);  
 }
