@@ -11,7 +11,7 @@ tamanho = arr.unshift("Boromir")
 console.log(arr)
 console.log(tamanho)
 
-// pop serve para remver elementos sempre da última posição
+// pop serve para remover elementos sempre da última posição
 let ultimoElemento = arr.pop()
 console.log(arr)
 console.log(ultimoElemento)
