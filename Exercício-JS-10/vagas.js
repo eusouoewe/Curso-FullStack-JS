@@ -1,47 +1,125 @@
-let vagas = [
-    {vaga: "Office Boy", quantidade: 41},
-    {vaga: "Auxiliar de Limpeza", quantidade: 19},
-    {vaga: "Auxiliar Administrativo", quantidade: 11},
-    {vaga: "Gerente de Produção", quantidade: 4}
-]
+const vagas =[]
 
-alert("Bem vindo ao SVE - Sistema de Vagas de Emprego")
-let opcao; // opcao inicia vazia para ser inserida no prompt
+function listarVagas () {
+    const vagasEmTexto = vagas.reduce(function (textoFinal, vaga, indice){
+    textoFinal += indice + ". "
+    textoFinal += vaga.nome 
+    textoFinal += " (" + vaga.candidatos.length + "candidatos) "
+    return textoFinal
+    })
 
-while (opcao !== 6) {
-    opcao = prompt(`Escolha uma das opções a seguir:
-    
-    1- Listar Vagas Dispoíveis;
-    2- Criar uma nova vaga;
-    3- Visualizar uma vaga;
-    4- Inscrever um candidato em uma vaga;
-    5- Excluir uma vaga;
-    6- Sair.`)
+    alert(vagasEmTexto)
+}
 
-    switch (opcao) {
-        case "1": { // ver vagas disponíveis
-            for (let indice = 0; indice < vagas.length; indice++) {
-                alert(`${indice + 1}- ${vagas[vaga]}`
-            }
-        }
-        case "2": { // criar uma nova vaga
+function novaVaga() {
+    const nome = prompt("Informe uma nome para a vaga: ")
+    const descricao = prompt("Informe uma descricao para a vaga: ")
+    const dataLimite = prompt("Informe uma data limite (dd/mm/aaaa) para a vaga: ") 
+    const confirmacao = confirm(
+    "Deseja criar uma nova vaga com essas informações?\n" +
+    "Nome: " + nome + "\nDescricao: " + descricao + "\nData Limite: " + dataLimite
+    )
 
-        }
-        case "3": { // visualizar uma vaga específica
-
-        }
-        case "4": { // Inscrever um candidato em uma vaga
-
-        }
-        case "5": { // excluir uma vaga
-
-        }
-        case "6": { //encerra o programa
-            break
-        }
-        default: {
-            alert("OPÇÃO INVÁLIDA, POR FAVOR SELECIONE UMA DAS OPÇÕES DISPONÍVEIS.")
-        }
+    if (confirmacao) {
+        const novaVaga = {nome, descricao, dataLimite, candidatos: []}
+        vagas.push(novaVaga)
+        alert("Vaga criada.")
     }
 }
-alert("Até a próxima!")
+
+function exibirVaga() {
+    const indice = prompt("Informe o índice da vaga que deseja exibir: ")
+    const vaga = vagas[indice]
+    const candidatosEmTexto = vaga.candidatos.reduce(function (textoFinal, candidato) {
+        return textoFinal + "\n -  " + candidato
+    }, " ")
+    alert("Vaga nº " + indice +
+    "\nNome: " + vaga.nome +
+    "\nDescrição: " + vaga.descricao + 
+    "\nData Limite: " + vaga.dataLimite +
+    "\nQuantidade de Candidatos: " + vaga.candidatos.length +
+    "\nCandidatos inscritos na vaga: " + candidatosEmTexto
+    )
+}
+
+function inscreverCandidato () {
+    const candidato = prompt("Informe o nome do(a) candidato(a): ")
+    const indice = prompt("Informe o indice da vaga que o(a) canditato(a) deseja se inscrever: ")
+    const vaga = vagas[indice]
+
+    const confirmacao = confirm(
+    "Deseja inscrever o(a) candidato(a)" + candidato + " na vaga " + indice + "?\n" +
+    "Nome: " + vaga.nome + 
+    "\nDescrição: " + vaga.descricao + 
+    "\nData Limite: " + vaga.dataLimite 
+    )
+
+    if (confirmacao) { 
+        vaga.candidatos.push(candidato)
+        alert("Inscrição realizada.")
+    }
+}
+
+function excluirVaga() {
+    const indice = prompt("Informe o índice da vaga que deseja excluir: ")
+    const vaga = vagas[indice]
+
+    const confirmacao = confirm(
+        "Tem certeza que deseja excluir a vaga" + indice + "?\n" +
+        "Nome: " + vaga.nome +
+        "\nDescrição: "  + vaga.descricao +
+        "\nData Limite: " + vaga.dataLimite  
+    )
+
+    if (confirmacao) {
+        vagas.splice(indice, 1)
+        alert("Vaga excluída.")
+    }
+}
+
+function exibirMenu() {
+    const opcao = prompt("Cadastro de Vagas de Emprego" +
+    "\n\nEscolha uma das opções: " +
+    "\n1- Listar Vagas Disponíveis" +
+    "\n2- Criar uma nova vaga" +
+    "\n3- Visualizar uma nova vaga" +
+    "\n4- Inscrever um(a) candidato(a)" +
+    "\n5- Excluir uma vaga" +
+    "\n6- Sair"
+    )
+
+    return opcao
+}
+
+function executar() {
+    let opcao = ""
+    
+    do {
+        opcao = exibirMenu()
+
+        switch (opcao) {
+            case "1":
+                listarVagas()
+                break
+            case "2":
+                novaVaga()
+                break
+            case "3":
+                exibirVaga()
+                break
+            case "4":
+                inscreverCandidato()
+                break
+            case "5":
+                excluirVaga()
+                break
+            case "6":
+                alert("Saindo...")
+                break
+            default:
+                alert("OPÇÃO INVÁLIDA.")
+        } 
+    } while (opcao !== "6")
+}
+
+executar()
